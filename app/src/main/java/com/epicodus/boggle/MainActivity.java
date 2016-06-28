@@ -23,7 +23,7 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
 //    private ListView mGameList;
-    private String[] dice = new String[]{"a", "e", "t", "r", "i", "n", "o", "s", "d", "c", "h", "l", "f", "m", "p", "u",
+    private String[] dice = new String[]{"a", "a", "a", "e", "e", "e", "t", "r", "i", "i", "i", "n", "o", "o", "o", "s", "d", "c", "h", "l", "f", "m", "p", "u", "u", "u",
             "g", "y", "w", "b", "j", "k", "q", "v", "x", "z" };
 
     @Bind(R.id.refresh) Button refreshButton;
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         letterBoxes.add(mcol44);
 
         for(int i = 0; i < letterBoxes.size(); i++){
-            int randomNum = (int)(Math.random() * 25 + 1);
+            int randomNum = (int)(Math.random() * 35 + 1);
             letterBoxes.get(i).setText(dice[randomNum]);
             Log.d("array", letterBoxes.get(i).toString());
         }
