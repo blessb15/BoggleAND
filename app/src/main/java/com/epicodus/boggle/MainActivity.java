@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -13,6 +14,7 @@ import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 
 
+import java.util.ArrayList;
 import java.util.Random;
 
 
@@ -20,7 +22,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
-    private ListView mGameList;
+//    private ListView mGameList;
     private String[] dice = new String[]{"a", "e", "t", "r", "i", "n", "o", "s", "d", "c", "h", "l", "f", "m", "p", "u",
             "g", "y", "w", "b", "j", "k", "q", "v", "x", "z" };
 
@@ -51,43 +53,32 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mGameList = (ListView) findViewById(R.id.listView);
-
         ButterKnife.bind(this);
 
-        int randomNum1 = (int)(Math.random() * 26 + 1);
-        int randomNum2 = (int)(Math.random() * 26 + 1);
-        int randomNum3 = (int)(Math.random() * 26 + 1);
-        int randomNum4 = (int)(Math.random() * 26 + 1);
-        int randomNum5 = (int)(Math.random() * 26 + 1);
-        int randomNum6 = (int)(Math.random() * 26 + 1);
-        int randomNum7 = (int)(Math.random() * 26 + 1);
-        int randomNum8 = (int)(Math.random() * 26 + 1);
-        int randomNum9 = (int)(Math.random() * 26 + 1);
-        int randomNum10 = (int)(Math.random() * 26 + 1);
-        int randomNum11 = (int)(Math.random() * 26 + 1);
-        int randomNum12 = (int)(Math.random() * 26 + 1);
-        int randomNum13 = (int)(Math.random() * 26 + 1);
-        int randomNum14 = (int)(Math.random() * 26 + 1);
-        int randomNum15 = (int)(Math.random() * 26 + 1);
-        int randomNum16 = (int)(Math.random() * 26 + 1);
+        ArrayList<TextView>letterBoxes = new ArrayList<TextView>();
 
-        mcol11.setText(dice[randomNum1]);
-        mcol12.setText(dice[randomNum2]);
-        mcol13.setText(dice[randomNum3]);
-        mcol14.setText(dice[randomNum4]);
-        mcol21.setText(dice[randomNum5]);
-        mcol22.setText(dice[randomNum6]);
-        mcol23.setText(dice[randomNum7]);
-        mcol24.setText(dice[randomNum8]);
-        mcol31.setText(dice[randomNum9]);
-        mcol32.setText(dice[randomNum10]);
-        mcol33.setText(dice[randomNum11]);
-        mcol34.setText(dice[randomNum12]);
-        mcol41.setText(dice[randomNum13]);
-        mcol42.setText(dice[randomNum14]);
-        mcol43.setText(dice[randomNum15]);
-        mcol44.setText(dice[randomNum16]);
+        letterBoxes.add(mcol11);
+        letterBoxes.add(mcol12);
+        letterBoxes.add(mcol13);
+        letterBoxes.add(mcol14);
+        letterBoxes.add(mcol21);
+        letterBoxes.add(mcol22);
+        letterBoxes.add(mcol23);
+        letterBoxes.add(mcol24);
+        letterBoxes.add(mcol31);
+        letterBoxes.add(mcol32);
+        letterBoxes.add(mcol33);
+        letterBoxes.add(mcol34);
+        letterBoxes.add(mcol41);
+        letterBoxes.add(mcol42);
+        letterBoxes.add(mcol43);
+        letterBoxes.add(mcol44);
+
+        for(int i = 0; i < letterBoxes.size(); i++){
+            int randomNum = (int)(Math.random() * 25 + 1);
+            letterBoxes.get(i).setText(dice[randomNum]);
+            Log.d("array", letterBoxes.get(i).toString());
+        }
 
         refreshButton.setOnClickListener(new View.OnClickListener() {
             @Override
